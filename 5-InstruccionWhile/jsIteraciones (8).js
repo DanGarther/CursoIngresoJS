@@ -1,14 +1,37 @@
 function mostrar()
 {
 
-	var contador=0;
-	var positivo=0;
-	var negativo=1;
+
+	var numero;
+	var acumulador = 0;
+	var acumuladorNeg = 1;
+	var respuesta;
+
+	respuesta = prompt("Desea ingresar un numero?").toLowerCase();
+	numero = parseInt(prompt("Ingrese un numero"));
+
+	while(respuesta == "si" && numero >= 0 ){
+
+		acumulador = acumulador + numero;
+
+		respuesta = prompt("Desea ingresar otro numero?").toLowerCase();
+		numero = parseInt(prompt("Ingrese un numero"));
 	
-	var respuesta='si';
+		console.log(acumulador);
+	}
 
+	
 
-document.getElementById('suma').value=positivo;
-document.getElementById('producto').value=negativo;
+	while(respuesta == "si" && numero <= 0){
+
+		acumuladorNeg = acumuladorNeg * numero;
+
+		respuesta = prompt("Desea ingresar otro numero?").toLowerCase();
+		numero = parseInt(prompt("Ingrese un numero"));
+	
+		console.log(acumuladorNeg);
+	}
+
+	
 
 }//FIN DE LA FUNCIÓN
