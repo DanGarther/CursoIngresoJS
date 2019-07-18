@@ -1,37 +1,78 @@
 function mostrar()
 {
 
-
+/*
 	var numero;
 	var acumulador = 0;
-	var acumuladorNeg = 1;
-	var respuesta;
+	var acumuladorNeg = 0;
+	var respuesta = "si";
 
-	respuesta = prompt("Desea ingresar un numero?").toLowerCase();
-	numero = parseInt(prompt("Ingrese un numero"));
+	while(respuesta == "si"){
 
-	while(respuesta == "si" && numero >= 0 ){
+		numero = parseInt(prompt("Ingrese un numero por favor."));
+
+		if(numero>0){
 
 		acumulador = acumulador + numero;
 
+		}
+
+		else{
+
+			acumuladorNeg = (acumuladorNeg + 1) * numero;
+
+		}
+
+
 		respuesta = prompt("Desea ingresar otro numero?").toLowerCase();
-		numero = parseInt(prompt("Ingrese un numero"));
-	
-		console.log(acumulador);
+
 	}
 
-	
+	document.getElementById("suma").value = acumulador;
+	document.getElementById("producto").value = acumuladorNeg;
+*/
 
-	while(respuesta == "si" && numero <= 0){
+var numero;
+var acumulador = 0;
+var acumuladorNeg = 1;
+var flag = 0;
+var respuesta;
+
+do{
+
+	numero = parseInt(prompt("Ingrese un numero por favor."));
+
+	while(isNaN(numero)){
+
+		numero = parseInt(prompt("Error, ingrese un numero por favor."));
+
+	}
+
+	if(numero>=0){
+
+	acumulador = acumulador + numero;
+
+	}
+
+	else{
 
 		acumuladorNeg = acumuladorNeg * numero;
 
-		respuesta = prompt("Desea ingresar otro numero?").toLowerCase();
-		numero = parseInt(prompt("Ingrese un numero"));
-	
-		console.log(acumuladorNeg);
+		flag = 1;
 	}
 
-	
+
+	respuesta = prompt("Desea ingresar otro numero?").toLowerCase();
+
+}while(respuesta == "si" || respuesta == "s");
+
+if(flag == 0){
+
+	acumuladorNeg = 0;
+
+}
+
+document.getElementById("suma").value = acumulador;
+document.getElementById("producto").value = acumuladorNeg;
 
 }//FIN DE LA FUNCIÓN
